@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #131313;
+            color : whitesmoke
+        }
+    </style>
+</head>
+<body>
+    <button id = "time">Start</button>
+    <p id = "add"></p>
+    <button id = "time2">Stop</button>
+</body>
+<script>
+    let si ;
+    const fun =function(){
+        const date = new Date();
+        document.getElementById('add').innerHTML = date.toLocaleTimeString()
+    }
+const fun1 = function(){
+  si = setInterval(fun , 1000)
+}
+const fun2 = function(){
+    clearInterval(si)
+    document.getElementById('add').innerHTML = 'Abey Rokk Mat Yr....'
+    
+}
+document.getElementById('time').addEventListener('click' , fun1)
+document.getElementById('time2').addEventListener('click' , fun2)
+</script>
+</html>

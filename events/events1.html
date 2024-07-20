@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        img{
+         width : 150px;
+         height : 150px ; 
+        }
+
+        ul{
+            list-style-type: none;
+            display : flex; 
+            flex-flow : row wrap ; 
+            justify-content:  space-evenly ;
+            align-items: center;
+        }
+        li{
+            padding : 0.5rem ; 
+            margin-top: 1rem ;
+        }
+
+        
+    </style>
+</head>
+<body style = "background-color: #231313; color : aliceblue">
+    <h1>Hey There....</h1>
+    <ul id = "images">
+        <li><img id = "first" src="img/pici3.png" alt="firstPic"></li>
+        <li><img id = "second" src="img/profile3.png" alt="secPic"></li>
+        <li><img id = "third" src = "img/rocketman.png" alt="thirdPic"></li>
+        <li><img id = "fourth " src = "img/rocketride.png" alt="fourthPic"></li>
+    </ul>
+    
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+     // attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    const ele = document.querySelector('#first')
+    ele.onclick = function(){
+        console.log("hello boys...")
+    }
+
+    const ele2 = document.querySelector('#images')
+    
+    Array.from(ele2.children).forEach(element => {
+        element.addEventListener('click' , function(e){
+            console.log(element)
+        })
+    })
+    
+    document.getElementById('images').addEventListener('click' , function(e){
+        console.log("click inside the url")
+        
+    } , true)
+    document.getElementById('second').addEventListener('click' , function(e){
+        console.log("second")
+       
+    } , true)
+
+    //+++++++++++++++++++++++++++++++++++++++++
+      
+      document.getElementById('images').addEventListener('click'  , function(e){
+         console.log(e.target.tagName);
+         if(e.target.tagName === 'IMG'){
+            e.target.parentElement.remove()
+         }
+      })
+
+    
+    
+
+
+</script>
+</html>

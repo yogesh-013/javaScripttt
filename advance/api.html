@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            margin : 1rem; 
+     
+            background-color: blue ;
+        }
+        #start{
+            margin : 1.5rem;
+            padding : 1rem; 
+        }
+        #stop{
+            margin : 1.5rem;
+            padding : 1rem; 
+        }
+        div{
+            display : flex ; 
+            flex-direction: column;
+            justify-content: center ;
+            align-items: center ;
+            background-color: rebeccapurple;
+            font-size: 1.5rem ;
+            font-weight: bolder;
+        }
+        img{
+            width : 100px ;
+            height : 100px ; 
+            box-shadow :#131313;
+        }
+    </style>
+</head>
+<body style = "background-color: #131313; color : white">
+   <!--  0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete. -->
+    <div>
+        <button id="start">Start</button>
+        
+        <button id="stop">Stop</button>
+        <div>
+     <p id = "enter1"></p>
+      <div id = "hello"></div>
+     <p id = "enter2"></p>
+        </div>
+    </div>
+</body>
+<script>
+    const reqUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET' , reqUrl)
+    let followers ; 
+    let lastUpdated ; 
+    let pic ; 
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4){
+            
+            const data = JSON.parse(this.responseText)
+            followers = data.followers
+            lastUpdated = data.updated_at
+            pic = data.avatar_url
+        }
+    }
+    xhr.send()
+     document.getElementById('start').addEventListener('click' , function(e){
+     const addImg = document.createElement('img')
+     addImg.setAttribute('src' , "img/pici3.png")
+     document.getElementById('hello').appendChild(addImg)
+     document.getElementById('enter1').innerHTML = followers
+     document.getElementById('enter2').innerHTML = lastUpdated
+     document.querySelector('.hello img').setAttribute('src' , `${pic}`)
+    })
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "orange">Orange</button>
+    <button id = "green">Green</button>
+</body>
+<script>
+    function handler(color){
+      return function (){
+         document.body.style.backgroundColor= color ; 
+      }
+    }
+    document.getElementById('orange').addEventListener('click' , handler('orange')) // here comes a concept of lexical scoping and colsure when the function return the function then it return its reference only and due to lewxical scoping the  variables of mai function also works ....
+    document.getElementById('green').addEventListener('click' , handler('green'))
+
+</script>
+</html>

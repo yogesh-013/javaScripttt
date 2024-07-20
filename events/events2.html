@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+   background-color: #131313;
+   color : white ;
+}
+    </style>
+</head>
+<body>
+    <h1>Hello Bro !!!!</h1>
+    <button id = "start">Start</button>
+    <button id = "stop">Stop</button>
+  
+    
+</body>
+<script>
+   const ch1 = function(){
+    document.querySelector('h1').innerHTML = 'Hello Brother'
+   }
+   let ti ;
+   const ch2  = function(){
+    console.log("Clicked")
+    ti = setTimeout(ch1 , 3000)
+   }
+   const ch3 = function(){
+    clearTimeout(ti)
+   }
+   document.getElementById('start').addEventListener('click' , ch2)
+   document.getElementById('stop').addEventListener('click' , ch3)
+</script>
+</html>

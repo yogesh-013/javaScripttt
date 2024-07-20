@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style = "background-color: #131313; color: #0ff;">
+    <ul class = "language">
+
+        <li>JavaScript</li>
+    </ul>
+    
+    
+    
+</body>
+<script>
+      function addLang(lang){
+      const newEle = document.createElement('li')
+      newEle.id = Math.round(Math.random()*10 +1 )
+      newEle.className = "fixed"
+      newEle.style.backgroundColor = "orange"
+      newEle.style.color = "black"
+      newEle.innerHTML = lang 
+     document.querySelector('.language').appendChild(newEle)
+      
+      }
+      function optiAddLang(lang){
+      const newEle = document.createElement('li')
+      newEle.id = Math.round(Math.random()*10 +1 )
+      newEle.className = "fixed"
+      newEle.style.backgroundColor = "orange"
+      newEle.style.color = "black"
+       li.appendChild(document.createTextNode(lang))
+     document.querySelector('.language').appendChild(newEle)
+      
+      }
+      
+      addLang("Python")
+      addLang("Golang")
+      addLang("Type-script")
+
+      //++++++++++++EDIT++++++++++++++++++++++
+
+      const toAdd = document.querySelector('li:nth-child(2)')
+      const newEle = document.createElement('li')
+      newEle.textContent = "updated Python"
+      toAdd.replaceWith(newEle)
+
+      //++++++++++++++++EDIT(second )++++++++++++++++
+
+      const add = document.querySelector('li:first-child')
+      add.textContent = "updated JavaScript"
+      add.outerHTML = "<li> again updated Javascript </li>"
+ //+++++++++++++++++++++++++++++REMOVE+++++++++++++++++
+       document.querySelector('li:first-child').remove()
+
+
+</script>
+</html>
